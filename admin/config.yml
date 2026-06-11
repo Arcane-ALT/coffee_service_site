@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"       # Папка, куда будут сохраняться картинки
+public_folder: "/images/uploads"     # Публичный URL-адрес до этой папки
+
+collections:
+  - name: "blog"                         # Имя коллекции, используется в коде
+    label: "Блог"                        # Название в интерфейсе админки
+    folder: "content/blog"               # Папка для хранения Markdown-файлов
+    create: true                         # Разрешить создание новых документов
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Шаблон имени файла
+    fields:                              # Поля, которые будут в интерфейсе
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата публикации", name: "date", widget: "datetime" }
+      - { label: "Краткое описание", name: "description", widget: "text", required: false }
+      - { label: "Изображение", name: "image", widget: "image", required: false }
+      - { label: "Текст поста", name: "body", widget: "markdown" }
