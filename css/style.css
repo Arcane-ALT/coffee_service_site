@@ -1,0 +1,716 @@
+:root{
+  --bg:#f7f1ea;
+  --surface:#fffaf5;
+  --surface-2:#f0e3d7;
+  --text:#2f221c;
+  --muted:#6e5c51;
+  --primary:#8b5e3c;
+  --primary-dark:#6d452a;
+  --accent:#c99261;
+  --line:#e6d6c8;
+  --shadow:0 10px 30px rgba(68,42,24,0.08);
+  --radius:22px;
+  --max:1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg); /* цвет, если картинка не загрузится */
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button, input, select, textarea {
+  font: inherit;
+}
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+.section {
+  padding: 72px 0;
+}
+.section-tight {
+  padding: 42px 0;
+}
+.grid {
+  display: grid;
+  gap: 24px;
+}
+.card {
+  background: rgba(255,250,245,0.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(139,94,60,0.10);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+.small {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.muted {
+  color: var(--muted);
+}
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: 22px;
+  line-height: 1.15;
+}
+.lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.kicker {
+  margin-bottom: 14px;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(139,94,60,0.18);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn-secondary:hover {
+  border-color: #c9b4a4;
+  transform: translateY(-1px);
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.badge {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(18px);
+  background: rgba(247,241,234,0.84);
+  border-bottom: 1px solid rgba(230,214,200,0.7);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  gap: 16px;
+  position: relative;
+}
+.brand {
+  display: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 1.15rem;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(139,94,60,0.10);
+  color: var(--primary-dark);
+}
+.menu-btn {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .nav {
+    min-height: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .menu-btn {
+    display: inline-flex;
+  }
+  .nav-links {
+    display: none;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 0.75rem;
+    flex-direction: column;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+    white-space: normal;
+    text-align: center;
+    padding: 0.75rem;
+  }
+}
+
+/* ———— Логотип только на главной ———— */
+.logo-corner {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  z-index: 50;
+  width: 280px;
+  max-width: 35vw;
+}
+.logo-corner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 760px) {
+  .logo-corner {
+    top: 30px;
+    right: 15px;
+    width: 180px;
+  }
+}
+body.has-corner-logo .nav-links {
+  padding-right: 240px;
+}
+@media (max-width: 760px) {
+  body.has-corner-logo .nav-links {
+    padding-right: 120px;
+  }
+}
+
+/* ———— Герой-блок с фоном ———— */
+.hero-bg {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-centered {
+  position: relative;
+  z-index: 2;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+  padding: 20px;
+}
+.hero-content h1 {
+  font-size: clamp(35px, 8vw, 45px);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-content .lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #f0e3d7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+.hero-content .btn-row {
+  justify-content: center;
+}
+@media (max-width: 760px) {
+  .hero-bg {
+    min-height: 60vh;
+  }
+  .hero-content .lead {
+    font-size: 1.2rem;
+  }
+  .hero-centered {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+/* ———— Бренды (простые теги) ———— */
+.brands-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.brand-tag {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 40px;
+  padding: 8px 18px;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+/* ———— Стили для остальных страниц (услуги, галерея, отзывы, блог и т.д.) ———— */
+.two-col {
+  grid-template-columns: 1fr 1fr;
+}
+.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+.service {
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(255,250,245,0.96);
+  border: 1px solid var(--line);
+}
+.service-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.price {
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+.gallery-item, .review, .blog-card, .info-card {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255,250,245,0.96);
+  border: 1px solid var(--line);
+}
+.placeholder {
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(139,94,60,0.13), rgba(201,146,97,0.08)),
+              repeating-linear-gradient(45deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25) 12px, rgba(0,0,0,0.02) 12px, rgba(0,0,0,0.02) 24px);
+  border: 1px solid rgba(139,94,60,0.12);
+  display: grid;
+  place-items: center;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+.quote {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.calculator {
+  display: grid;
+  gap: 16px;
+}
+.calc-box {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255,250,245,0.96);
+  border: 1px solid var(--line);
+}
+.calc-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  background: rgba(139,94,60,0.08);
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 800;
+}
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+.step {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255,250,245,0.94);
+  border: 1px solid var(--line);
+}
+.step strong {
+  display: block;
+  margin-bottom: 6px;
+}
+.contact-list {
+  display: grid;
+  gap: 12px;
+}
+.contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255,250,245,0.9);
+  border: 1px solid var(--line);
+}
+.contact-item strong {
+  display: block;
+}
+.contact-item span {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.map-box {
+  min-height: 340px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,250,245,0.92), rgba(255,250,245,0.80)),
+              radial-gradient(circle at 20% 20%, rgba(139,94,60,0.15), transparent 20%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+}
+.page-title {
+  padding: 34px 0 12px;
+}
+.breadcrumbs {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.tag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(139,94,60,0.08);
+  border: 1px solid rgba(139,94,60,0.10);
+  color: var(--primary-dark);
+  font-size: 13px;
+}
+hr.sep {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 24px 0;
+}
+@media (max-width: 980px) {
+  .two-col, .three-col {
+    grid-template-columns: 1fr;
+  }
+  .hero-content {
+    margin-top: 6vh;
+  }
+}
+
+/* ———— Футер ———— */
+.footer {
+  padding: 28px 0 40px;
+  color: var(--muted);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+/* Общие стили для всех брендов */
+.brand-float {
+  position: absolute;
+  z-index: 150;
+  background: #e0cfbd;;
+  backdrop-filter: blur(6px);
+  border-radius: 50px;
+  padding: 8px 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(139, 94, 60, 0.3);
+  transition: transform 0.2s ease;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+  white-space: nowrap;
+}
+.brand-float:hover {
+  transform: scale(1.02);
+  background: white;
+}
+
+/* Адаптация для планшетов – уменьшаем шрифт и отступы (inline-стили переопределят, но можно задать общие границы) */
+@media (max-width: 900px) {
+  .brand-float {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+  }
+  /* Для планшетов можно скорректировать позиции, но inline-стили останутся – если нужно, добавьте !important или переопределите в медиа-запросе с помощью дополнительных классов */
+}
+
+/* На мобильных – скрываем все бренды */
+@media (max-width: 650px) {
+  .brand-float {
+    display: none;
+  }
+}
+
+/* Левое выравнивание контента в hero-блоке для страницы услуг */
+.hero-centered-left {
+  position: relative;
+  z-index: 2;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 20px;
+}
+.hero-content-left {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+  margin-top: 12vh;
+}
+.hero-content-left h1 {
+  font-size: clamp(35px, 8vw, 45px);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-content-left .lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #f0e3d7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+@media (max-width: 760px) {
+  .hero-content-left {
+    margin-top: 6vh;
+  }
+  .hero-content-left .lead {
+    font-size: 1.2rem;
+  }
+}
+
+/* Специальный класс для hero с текстом слева сверху */
+.hero-left-top {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+.hero-centered-left {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 20px 30px; /* маленькие отступы от краёв */
+  margin: 0;
+}
+.hero-content-left {
+  color: #fff;
+  max-width: 700px;
+  text-align: left; /* выравнивание текста влево */
+}
+.hero-content-left h1 {
+  font-size: clamp(35px, 8vw, 45px);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-content-left .lead {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: #f0e3d7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+@media (max-width: 760px) {
+  .hero-centered-left {
+    padding: 15px 20px;
+  }
+  .hero-content-left .lead {
+    font-size: 1.2rem;
+  }
+}
+
+/* Список услуг с чекбоксами */
+.services-checklist {
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin: 40px 0;
+  box-shadow: var(--shadow);
+  background: url('../images/bgSite.png') repeat, var(--surface);
+  border-radius: var(--radius);
+  margin: 40px 0;
+  box-shadow: var(--shadow);
+}
+.section-title-center {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 36px);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  color: var(--primary-dark);
+  margin-bottom: 32px;
+}
+.checklist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.checklist-item:hover {
+  background: rgba(139,94,60,0.05);
+  transform: translateX(5px);
+}
+.checklist-item input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+.checklist-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: var(--primary-dark);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 60px;
+  margin-top: 32px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.checklist-total span:first-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.total-price {
+  font-size: 1.8rem;
+}
+@media (max-width: 700px) {
+  .checklist-item {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+  .checklist-total {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+  }
+  .total-price {
+    font-size: 1.4rem;
+  }
+}
+

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coffee Repair — услуги и цены</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="has-corner-logo">
+<header>
+  <div class="container nav">
+    <button class="menu-btn" data-menu-btn type="button">Меню</button>
+    <nav class="nav-links" data-nav-links>
+      <a data-nav-link href="index.html">Главная</a>
+      <a data-nav-link href="services.html">Услуги</a>
+      <a data-nav-link href="gallery.html">Галерея</a>
+      <a data-nav-link href="reviews.html">Отзывы</a>
+      <a data-nav-link href="blog.html">Блог</a>
+      <a data-nav-link href="about.html">О компании</a>
+      <a data-nav-link href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<div class="logo-corner">
+  <a href="index.html">
+    <img src="images/logo.png" alt="Coffee Repair — ремонт кофемашин">
+  </a>
+</div>
+
+<main>
+  <!-- Hero-блок с фоном, текст слева сверху -->
+  <section class="hero-bg hero-left-top" style="background-image: url('images/bgServices.png');">
+    <div class="container hero-centered-left">
+      <div class="hero-content-left">
+        <h1>Ремонт кофемашин любой сложности</h1>
+        <p class="lead">Профессиональная диагностика, прозрачные цены, гарантия на все работы</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Новый блок: список услуг с чекбоксами и итоговой стоимостью -->
+  <section class="section services-checklist">
+    <div class="container">
+      <div class="section-title-center">Выберите нужные услуги - сайт рассчитает примерную стоимость!</div>
+      <div class="checklist-grid">
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="1500"> Выезд по Москве — 1 500 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="2000"> Выезд за МКАД — от 2 000 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="1500"> Диагностика при отказе от ремонта — от 1 500 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="1500"> Программные чистки — от 1 500 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="5500"> Комплексное обслуживание — от 5 500 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="1000"> Онлайн - консультация по устраненеию проблем — от 1 000 ₽
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" data-service-price="1500"> Ремонт кофемашины клиента по видеосвязи — от 1 500 ₽
+        </label>
+      </div>
+      <div class="checklist-total">
+        <span>Примерная итоговая стоимость:</span>
+        <span class="total-price">0 ₽</span>
+      </div>
+      <p style="font-size: 1.5rem; color: var(--muted); text-align: center; margin-top: 20px;">!Точная сумма ремонта — после диагностики!</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
